@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Course {
+  id          String   @id @default(uuid())
+  title       String
+  category    String
+  description String
+  syllabus    String // JSON string or plain text
+  price       Float?
+  orders      Order[]
+}
+
+model Service {
+  id          String           @id @default(uuid())
+  title       String
+  description String
+  category    String
+  requests    ServiceRequest[]
+}
+
+model Order {
+  id            String   @id @default(uuid())
+  courseId      String
+  course        Course   @relation(fields: [courseId], references: [id])
+  customerName  String
+  customerEmail String
+  customerPhone String
+  status        String   @default("PENDING") // PENDING, COMPLETED, CANCELLED
+  createdAt     DateTime @default(now())
+}
+
+model ServiceRequest {
+  id            String   @id @default(uuid())
+  serviceId     String
+  service       Service  @relation(fields: [serviceId], references: [id])
+  customerName  String
+  customerEmail String
+  customerPhone String
+  details       String
+  status        String   @default("PENDING") // PENDING, COMPLETED, CANCELLED
+  createdAt     DateTime @default(now())
+}
