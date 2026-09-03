@@ -6,10 +6,18 @@ export default function Home() {
     <>
       <section className="hero hero-new">
         <div className="hero-bg">
-          <img
-            src="https://images.pexels.com/photos/8159/construction-site-build-construction-work.jpg?auto=compress&cs=tinysrgb&w=1800"
-            alt="Construction workers in high-visibility vests and hard hats on an active job site"
-          />
+          <div className="hero-slide">
+            <img
+              src="https://images.pexels.com/photos/8159/construction-site-build-construction-work.jpg?auto=compress&cs=tinysrgb&w=1800"
+              alt="Construction workers in high-visibility vests and hard hats on an active job site"
+            />
+          </div>
+          <div className="hero-slide hero-slide--2">
+            <img
+              src="https://images.pexels.com/photos/18340568/pexels-photo-18340568.jpeg?auto=compress&cs=tinysrgb&w=1800"
+              alt="Fire safety training exercise with an extinguisher"
+            />
+          </div>
           <div className="hero-overlay"></div>
         </div>
         <div className="hero-content text-center">
@@ -19,10 +27,10 @@ export default function Home() {
               engineered <em>right.</em>
             </h1>
             <h2 className="hero-subtitle">
-              4M OCCUPATIONAL SAFETY, HEALTH & ENVIRONMENT
+              4M OCCUPATIONAL SAFETY, HEALTH AND ENVIRONMENT
             </h2>
             <p className="hero-description">
-              4 Max Safety helps organizations across Uganda ensure compliance, protect their people, and build sustainable, accident-free workplaces — through auditing, training, consultancy and certified safety equipment.
+              4 Max Safety helps organizations across Uganda ensure compliance, protect their people, and build sustainable, accident-free workplaces through auditing, training, consultancy and certified safety equipment.
             </p>
             <div className="hero-actions justify-center">
               <Link href="/services" className="btn btn-turquoise">
