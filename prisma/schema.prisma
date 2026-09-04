@@ -17,6 +17,8 @@ model Course {
   description String
   syllabus    String // JSON string or plain text
   price       Float?
+  imageUrl    String?
+  content     String?
   orders      Order[]
 }
 
@@ -25,6 +27,8 @@ model Service {
   title       String
   description String
   category    String
+  imageUrl    String?
+  content     String?
   requests    ServiceRequest[]
 }
 

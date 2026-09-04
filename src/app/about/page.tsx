@@ -1,234 +1,116 @@
-import Link from "next/link";
-import Image from "next/image";
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
-export default function About() {
+export default function AboutPage() {
   return (
     <>
-      <section className="page-banner">
+      <div className="page-banner" style={{ minHeight: '400px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <div className="hero-bg">
-          <img
-            src="https://images.pexels.com/photos/11321790/pexels-photo-11321790.jpeg?auto=compress&cs=tinysrgb&w=1800"
-            alt="Safety consultant on site wearing a hard hat"
-          />
+          <img src="https://images.pexels.com/photos/9301291/pexels-photo-9301291.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="About 4 Max Safety" />
         </div>
         <div className="container">
-          <div className="crumb">
-            <Link href="/">Home</Link> &nbsp;/&nbsp; About Us
-          </div>
-          <h1>Built on servant leadership and safety first.</h1>
-          <p>
-            4 Max Safety is positioned to meet the growing demand for workplace safety solutions in Uganda — with the strategy, expertise, and commitment to quality that make us a trusted partner.
-          </p>
+          <div className="crumb"><Link href="/">Home</Link> / About Us</div>
+          <h1>About 4 Max Safety</h1>
+          <p>A trusted partner for organizations seeking safer and compliant operations.</p>
         </div>
-      </section>
+      </div>
 
-      <section id="who" className="section reveal">
+      <section className="section">
         <div className="container split">
-          <div className="split-media">
-            <img
-              src="https://images.pexels.com/photos/9301291/pexels-photo-9301291.jpeg?auto=compress&cs=tinysrgb&w=1400"
-              alt="4 Max Safety team discussing a client engagement"
-            />
-            <div className="frame-tag">Est. Kampala, Uganda</div>
-          </div>
           <div className="split-text">
-            <span className="eyebrow">Who We Are</span>
-            <h2>Trusted partners for safer, compliant operations</h2>
+            <span className="eyebrow" style={{ display: 'block', color: 'var(--accent)', fontWeight: 600, letterSpacing: '0.05em', marginBottom: '10px' }}>Executive Summary</span>
+            <h2>Leading provider of workplace safety solutions in Uganda</h2>
             <p>
-              4 Max Safety Company is dedicated to providing professional Occupational Safety, Health and Environment services. We help organizations ensure compliance and build safe, sustainable workplaces for their workers.
+              4 MAX SAFETY COMPANY is positioned to meet the growing demand for workplace safety solutions in Uganda. With the right strategy, expertise, and commitment to quality, the company can become a trusted partner for organizations seeking safer and compliant operations.
             </p>
             <p>
-              With the right strategy, expertise, and commitment to quality, we are becoming a trusted partner for organizations across Uganda that are seeking safer and more compliant operations. Trainings, auditing, consultancy, and the supply of safety equipment are among the services we offer.
+              We are dedicated to providing professional Occupational Safety, Health and Environment. We help organizations to ensure compliance, ensures safety and sustainable workplaces for their workers. Trainings, auditing, consultancy, supply of safety equipment are among our services we are offering.
             </p>
-            <Link href="/contact" className="btn">
-              Work With Us <span className="btn-arrow">&rarr;</span>
-            </Link>
+          </div>
+          <div className="split-media" style={{ borderRadius: '8px', overflow: 'hidden' }}>
+            <img src="https://images.pexels.com/photos/18340568/pexels-photo-18340568.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Safety experts" />
           </div>
         </div>
       </section>
 
-      <section id="vision" className="section on-paper2 reveal">
-        <div className="container two-col">
-          <div>
-            <span className="eyebrow">Guiding Statements</span>
-            <h2 style={{ fontSize: "30px" }}>Vision & Mission</h2>
-          </div>
-          <div className="row-list" style={{ borderTop: "1px solid var(--line)" }}>
-            <div className="row-item" style={{ gridTemplateColumns: "1fr" }}>
-              <div>
-                <h3>Our Vision</h3>
-                <p>
-                  To be a leading provider of Occupational Safety, Health and Environment solutions in the world, based on technical concepts and evidenced delivery of professional services.
-                </p>
-              </div>
-            </div>
-            <div className="row-item" style={{ gridTemplateColumns: "1fr", borderBottom: 0 }}>
-              <div>
-                <h3>Our Mission</h3>
-                <p>
-                  To provide human resource, environment and property protection through offering high-quality, practical, and compliant safety solutions and partnerships that foster HSE development internationally.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="values" className="section reveal">
+      <section className="section on-paper2">
         <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">What We Stand For</span>
+          <div className="section-head center">
+            <h2>Vision & Mission</h2>
+            <p>The foundation of our commitment to safety</p>
+          </div>
+          <div className="split" style={{ gap: '30px' }}>
+            <div className="wp-card" style={{ padding: '40px' }}>
+              <h3 style={{ color: 'var(--accent)', marginBottom: '20px' }}>Our Vision</h3>
+              <p style={{ fontSize: '18px', lineHeight: '1.8' }}>
+                To be a leading provider of Occupational Safety Health and Environment solutions in the world based on Technical concepts and evidenced delivery of professional services.
+              </p>
+            </div>
+            <div className="wp-card" style={{ padding: '40px' }}>
+              <h3 style={{ color: 'var(--accent)', marginBottom: '20px' }}>Our Mission</h3>
+              <p style={{ fontSize: '18px', lineHeight: '1.8' }}>
+                To provide human Resource, environment and property protections through offering high-quality, practical, and compliant safety solutions and partnerships that foster HSE development internationally.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section on-ink">
+        <div className="container">
+          <div className="section-head center">
             <h2>Our Core Values</h2>
+            <p>The principles that guide our everyday operations</p>
           </div>
-          <ul className="values-list">
-            <li>
-              <span className="n">01</span>
-              <div><h4>Servant Leadership</h4></div>
-            </li>
-            <li>
-              <span className="n">02</span>
-              <div><h4>Safety First</h4></div>
-            </li>
-            <li>
-              <span className="n">03</span>
-              <div><h4>Integrity</h4></div>
-            </li>
-            <li>
-              <span className="n">04</span>
-              <div><h4>Professionalism</h4></div>
-            </li>
-            <li>
-              <span className="n">05</span>
-              <div><h4>Innovation & Creativity</h4></div>
-            </li>
-            <li>
-              <span className="n">06</span>
-              <div><h4>Stewardship</h4></div>
-            </li>
-          </ul>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px', marginTop: '40px' }}>
+            {[
+              "Servant leadership",
+              "Safety First",
+              "Integrity",
+              "Professionalism",
+              "Innovation and creativity",
+              "Stewardship"
+            ].map((val, idx) => (
+              <div key={idx} style={{ background: 'var(--ink-soft)', padding: '24px', borderRadius: '8px', borderLeft: '4px solid var(--amber)' }}>
+                <h4 style={{ margin: 0, fontSize: '18px' }}>{val}</h4>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section id="team" className="section on-paper2 reveal">
+      <section className="section">
         <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">Our Team</span>
-            <h2>Highly qualified professionals</h2>
-            <p>Expertise in occupational health, ISO standards, risk management, and environmental consulting.</p>
+          <div className="section-head center">
+            <h2>Commitment Benefit</h2>
+            <p>Why a robust dedication to OSH is a strategic advantage</p>
           </div>
-          <div className="team-grid">
-            <div className="team-item">
-              <div className="team-photo">
-                <img
-                  src="https://images.pexels.com/photos/28196526/pexels-photo-28196526.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Oryem David Mark, CEO"
-                />
-              </div>
-              <h4>Oryem David Mark</h4>
-              <div className="role">CEO &middot; HSE Consultant & Trainer</div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
+            <div className="wp-card" style={{ padding: '30px' }}>
+              <h4>Improved Safety</h4>
+              <p>Significantly lowered risk of mishaps, injuries, and ailments in the workplace.</p>
             </div>
-            <div className="team-item">
-              <div className="team-photo">
-                <img
-                  src="https://images.pexels.com/photos/8293699/pexels-photo-8293699.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Dr. Jeffy Briton Ssemuddu, Lead HSE Consultant"
-                />
-              </div>
-              <h4>Dr. Jeffy Briton Ssemuddu</h4>
-              <div className="role">Lead HSE Consultant & Trainer</div>
+            <div className="wp-card" style={{ padding: '30px' }}>
+              <h4>Reduced Expenses</h4>
+              <p>Minimizing potential expenses linked with mishaps, such as workers' compensation claims, legal fees, and lost productivity.</p>
             </div>
-            <div className="team-item">
-              <div className="team-photo">
-                <img
-                  src="https://images.pexels.com/photos/8960942/pexels-photo-8960942.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Laker Immaculate, HSE Consultant"
-                />
-              </div>
-              <h4>Laker Immaculate</h4>
-              <div className="role">HSE Consultant & Trainer</div>
+            <div className="wp-card" style={{ padding: '30px' }}>
+              <h4>Increased Output</h4>
+              <p>A safer and healthier work environment can result in heightened employee morale, involvement, and ultimately, greater productivity.</p>
             </div>
-            <div className="team-item">
-              <div className="team-photo">
-                <img
-                  src="https://images.pexels.com/photos/4981798/pexels-photo-4981798.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Yengi Bismark, Legal Consultant"
-                />
-              </div>
-              <h4>Yengi Bismark</h4>
-              <div className="role">Legal Consultant</div>
+            <div className="wp-card" style={{ padding: '30px' }}>
+              <h4>Regulatory Conformity</h4>
+              <p>Guaranteeing complete conformity with all relevant OSH regulations and standards, avoiding penalties and legal issues.</p>
             </div>
-            <div className="team-item">
-              <div className="team-photo">
-                <img
-                  src="https://images.pexels.com/photos/11429201/pexels-photo-11429201.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Oroma Patrick, Security Specialist"
-                />
-              </div>
-              <h4>Oroma Patrick</h4>
-              <div className="role">Security Specialist</div>
+            <div className="wp-card" style={{ padding: '30px', gridColumn: '1 / -1' }}>
+              <h4>Enhanced Standing</h4>
+              <p>Showcasing a proactive dedication to safety and health can greatly boost the organization's standing and public image, attracting top talent and fostering trust with stakeholders.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section reveal">
-        <div className="container two-col">
-          <div>
-            <span className="eyebrow">Environmental Principles</span>
-            <h2 style={{ fontSize: "30px" }}>How we manage our environmental impact</h2>
-          </div>
-          <div className="row-list" style={{ borderTop: "1px solid var(--line)" }}>
-            <div className="row-item" style={{ gridTemplateColumns: "60px 1fr" }}>
-              <div className="num">1</div>
-              <p style={{ margin: 0, color: "var(--ink-soft)" }}>
-                We are committed not only to maintaining an environmental management system but also to constantly improving it through designated programs, based on assessed environmental aspects.
-              </p>
-            </div>
-            <div className="row-item" style={{ gridTemplateColumns: "60px 1fr" }}>
-              <div className="num">2</div>
-              <p style={{ margin: 0, color: "var(--ink-soft)" }}>
-                All our employees and managers contribute to our environmental management system, adhere to its provisions, and help continually improve the system.
-              </p>
-            </div>
-            <div className="row-item" style={{ gridTemplateColumns: "60px 1fr" }}>
-              <div className="num">3</div>
-              <p style={{ margin: 0, color: "var(--ink-soft)" }}>
-                Our environmental management system guarantees compliance with environmental laws, standards, regulations and approval restrictions.
-              </p>
-            </div>
-            <div className="row-item" style={{ gridTemplateColumns: "60px 1fr" }}>
-              <div className="num">4</div>
-              <p style={{ margin: 0, color: "var(--ink-soft)" }}>
-                Careful handling of hazardous materials and energy saving through progressive, modern technologies play an important role in advancing our company.
-              </p>
-            </div>
-            <div className="row-item" style={{ gridTemplateColumns: "60px 1fr", borderBottom: 0 }}>
-              <div className="num">5</div>
-              <p style={{ margin: 0, color: "var(--ink-soft)" }}>
-                Our strong awareness of environmental issues means we set benchmarks, both internally and externally.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="cta-banner reveal">
-        <div className="hero-bg">
-          <img
-            src="https://images.pexels.com/photos/8487733/pexels-photo-8487733.jpeg?auto=compress&cs=tinysrgb&w=1800"
-            alt="Personal protective equipment close up"
-          />
-        </div>
-        <div className="container">
-          <span className="eyebrow" style={{ color: "var(--amber)" }}>Let's Talk</span>
-          <h2>Meet the team behind your safety programme</h2>
-          <p>We'd love to understand your operation and show you exactly how we can help.</p>
-          <div className="hero-actions">
-            <Link href="/contact" className="btn btn-solid">Contact Our Team</Link>
-            <Link href="/services" className="btn btn-ghost-light">View Our Services</Link>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

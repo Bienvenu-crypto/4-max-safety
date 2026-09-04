@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 
-export default async function Services() {
+export default async function Services(props: { searchParams: Promise<{ success?: string }> }) {
+  const searchParams = await props.searchParams;
+  const success = searchParams.success === 'true';
+
   const services = await prisma.service.findMany({
     orderBy: { title: 'asc' }
   });
@@ -28,25 +31,46 @@ export default async function Services() {
 
       <section className="section reveal">
         <div className="container">
+          {success && (
+            <div style={{
+              background: '#d4edda',
+              border: '1px solid #c3e6cb',
+              color: '#155724',
+              padding: '18px 24px',
+              borderRadius: '8px',
+              marginBottom: '40px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px',
+              fontSize: '15px'
+            }}>
+              <span style={{ fontSize: '22px' }}>✅</span>
+              <span>
+                <strong>Service request submitted successfully!</strong> One of our consultants will contact you within 24 hours to schedule a consultation.
+              </span>
+            </div>
+          )}
+
           {services.length === 0 ? (
             <div style={{ textAlign: "center", padding: "60px 0", color: "var(--muted)" }}>
               <p>No services found in the database. Please run the seed script to populate services.</p>
             </div>
           ) : (
-            <div className="row-list" style={{ marginBottom: "70px" }}>
+            <div className="wp-card-grid">
               {services.map((service) => (
-                <div key={service.id} className="course-item" style={{ border: "1px solid var(--line)", padding: "24px", marginBottom: "20px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <div>
-                    <div className="tags" style={{ display: "flex", gap: "8px", marginBottom: "12px" }}>
-                      <span className="pill">{service.category}</span>
+                <div key={service.id} className="wp-card">
+                  {service.imageUrl && (
+                    <img src={service.imageUrl} alt={service.title} className="wp-card-img" />
+                  )}
+                  <div className="wp-card-content">
+                    <div className="wp-card-category">{service.category}</div>
+                    <h3 className="wp-card-title">{service.title}</h3>
+                    <p className="wp-card-desc">{service.description}</p>
+                    <div className="wp-card-footer">
+                      <Link href={`/services/${service.id}`} className="wp-card-btn">
+                        Learn More
+                      </Link>
                     </div>
-                    <h3 style={{ fontSize: "20px", marginBottom: "8px" }}>{service.title}</h3>
-                    <p style={{ color: "var(--muted)", fontSize: "14.5px" }}>{service.description}</p>
-                  </div>
-                  <div>
-                    <Link href={`/services/request/${service.id}`} className="btn btn-solid">
-                      Request Service
-                    </Link>
                   </div>
                 </div>
               ))}

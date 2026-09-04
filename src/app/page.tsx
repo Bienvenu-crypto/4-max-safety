@@ -87,14 +87,14 @@ export default function Home() {
             <span className="eyebrow">Who We Are</span>
             <h2>A dedicated partner for Occupational Safety, Health & Environment</h2>
             <p>
-              4 Max Safety is a company dedicated to providing professional Occupational Safety, Health and Environment services. We help organizations ensure compliance and build safe, sustainable workplaces for their people through trainings, auditing, consultancy, and the supply of certified safety equipment.
+              4 MAX SAFETY is a company dedicated to providing professional Occupational Safety, Health and Environment. We help organizations to ensure compliance, ensures safety and sustainable workplaces for their workers. We are positioned to meet the growing demand for workplace safety solutions in Uganda. With the right strategy, expertise, and commitment to quality, the company can become a trusted partner for organizations seeking safer and compliant operations. Trainings, auditing, consultancy, supply of safety equipment are among our services we are offering.
             </p>
             <div className="value-tags">
-              <span>Servant Leadership</span>
+              <span>Servant leadership</span>
               <span>Safety First</span>
               <span>Integrity</span>
               <span>Professionalism</span>
-              <span>Innovation</span>
+              <span>Innovation and creativity</span>
               <span>Stewardship</span>
             </div>
             <Link href="/about" className="btn">
@@ -108,9 +108,19 @@ export default function Home() {
         <div className="container">
           <span className="mark">&ldquo;</span>
           <p>
-            To be a leading provider of Occupational Safety, Health and Environment solutions in the world, based on technical concepts and evidenced delivery of professional services.
+            To be a leading provider of Occupational Safety Health and Environment solutions in the world based on Technical concepts and evidenced delivery of professional services.
           </p>
           <div className="who">Our Vision</div>
+        </div>
+      </div>
+
+      <div className="quote-block reveal" style={{ background: 'var(--ink-soft)', paddingTop: 0 }}>
+        <div className="container">
+          <span className="mark" style={{ color: 'var(--accent)' }}>&ldquo;</span>
+          <p>
+            To provide human Resource, environment and property protections through offering high-quality, practical, and compliant safety solutions and partnerships that foster HSE development internationally.
+          </p>
+          <div className="who">Our Mission</div>
         </div>
       </div>
 

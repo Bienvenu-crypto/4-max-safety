@@ -106,6 +106,7 @@ export default function RootLayout({
                   <li><Link href="/courses">Courses</Link></li>
                   <li><Link href="/research">Research & Insights</Link></li>
                   <li><Link href="/contact">Contact</Link></li>
+                  <li><Link href="/admin">Admin Panel</Link></li>
                 </ul>
               </div>
               <div>
