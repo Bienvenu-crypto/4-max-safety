@@ -23,9 +23,6 @@ export default async function OrderCourse(props: { params: Promise<{ id: string 
           />
         </div>
         <div className="container">
-          <div className="crumb">
-            <Link href="/">Home</Link> &nbsp;/&nbsp; <Link href="/courses">Courses</Link> &nbsp;/&nbsp; Enroll
-          </div>
           <h1>Enroll: {course.title}</h1>
           <p>Fill in your details below to enroll in this course.</p>
         </div>
@@ -33,8 +30,8 @@ export default async function OrderCourse(props: { params: Promise<{ id: string 
 
       <section className="section">
         <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: '50px', alignItems: 'start' }}>
-          
-          {/* Form */}
+
+
           <div>
             <h2 style={{ fontSize: '26px', marginBottom: '8px' }}>Your Information</h2>
             <p style={{ color: 'var(--muted)', marginBottom: '32px' }}>

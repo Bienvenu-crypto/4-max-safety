@@ -10,7 +10,7 @@ export default function AboutPage() {
           <img src="https://images.pexels.com/photos/9301291/pexels-photo-9301291.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="About 4 Max Safety" />
         </div>
         <div className="container">
-          <div className="crumb"><Link href="/">Home</Link> / About Us</div>
+
           <h1>About 4 Max Safety</h1>
           <p>A trusted partner for organizations seeking safer and compliant operations.</p>
         </div>
@@ -57,13 +57,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section on-ink">
+      <section className="section" style={{ background: 'var(--white)' }}>
         <div className="container">
           <div className="section-head center">
             <h2>Our Core Values</h2>
             <p>The principles that guide our everyday operations</p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px', marginTop: '40px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px', marginTop: '40px' }}>
             {[
               "Servant leadership",
               "Safety First",
@@ -72,7 +72,7 @@ export default function AboutPage() {
               "Innovation and creativity",
               "Stewardship"
             ].map((val, idx) => (
-              <div key={idx} style={{ background: 'var(--ink-soft)', padding: '24px', borderRadius: '8px', borderLeft: '4px solid var(--amber)' }}>
+              <div key={idx} style={{ background: 'var(--paper)', border: '1px solid #eee', borderRadius: '8px', padding: '30px', textAlign: 'center' }}>
                 <h4 style={{ margin: 0, fontSize: '18px' }}>{val}</h4>
               </div>
             ))}
@@ -103,9 +103,92 @@ export default function AboutPage() {
               <h4>Regulatory Conformity</h4>
               <p>Guaranteeing complete conformity with all relevant OSH regulations and standards, avoiding penalties and legal issues.</p>
             </div>
-            <div className="wp-card" style={{ padding: '30px', gridColumn: '1 / -1' }}>
+            <div className="wp-card" style={{ padding: '30px' }}>
               <h4>Enhanced Standing</h4>
               <p>Showcasing a proactive dedication to safety and health can greatly boost the organization's standing and public image, attracting top talent and fostering trust with stakeholders.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Who Do We Serve */}
+      <section id="who-we-serve" className="section on-paper2 reveal">
+        <div className="container">
+          <div className="section-head center" style={{ marginBottom: '48px' }}>
+            <span className="eyebrow">Who Do We Serve</span>
+            <h2>Tailored safety solutions for high-risk &amp; complex sectors worldwide</h2>
+            <p>We provide Occupational Safety, Health and Environment services to a wide range of industries across Uganda and beyond.</p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px' }}>
+
+
+            <div className="wp-card" style={{ padding: '28px' }}>
+              <div style={{ fontSize: '36px', marginBottom: '16px' }}></div>
+              <div className="wp-card-category">Manufacturing &amp; Industrial</div>
+              <h3 style={{ fontSize: '18px', marginBottom: '16px' }}>Industries We Serve</h3>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                {[
+                  "Manufacturing Industries & Warehousing",
+                  "Basic Metal Production",
+                  "Chemical Industries",
+                  "Construction Industry",
+                  "Mining Industry",
+                  "Food & Beverages",
+                  "Transport & Logistics",
+                  "Oil & Gas",
+                  "Mechanical & Electrical",
+                ].map((item) => (
+                  <li key={item} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px' }}>
+                    <span style={{ color: 'var(--accent)', fontWeight: 700 }}>✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+
+            <div className="wp-card" style={{ padding: '28px' }}>
+              <div style={{ fontSize: '36px', marginBottom: '16px' }}></div>
+              <div className="wp-card-category">Education &amp; Public Sector</div>
+              <h3 style={{ fontSize: '18px', marginBottom: '16px' }}>Sectors We Support</h3>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                {[
+                  "Educational Sector",
+                  "Agricultural Sector",
+                  "Government Institutions",
+                  "Schools and Hospitals",
+                  "NGOs & International Organisations",
+                  "Logistics and Transport",
+                ].map((item) => (
+                  <li key={item} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px' }}>
+                    <span style={{ color: 'var(--accent)', fontWeight: 700 }}>✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+
+            <div className="wp-card" style={{ padding: '28px' }}>
+              <div style={{ fontSize: '36px', marginBottom: '16px' }}></div>
+              <div className="wp-card-category">Corporate Sectors</div>
+              <h3 style={{ fontSize: '18px', marginBottom: '16px' }}>Business Environments</h3>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                {[
+                  "Corporate Offices (SMEs)",
+                  "Restaurants & Hotels",
+                  "Logistics and Transport Companies",
+                  "Healthcare Facilities",
+                  "Financial Institutions",
+                  "Real Estate & Property Management",
+                ].map((item) => (
+                  <li key={item} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px' }}>
+                    <span style={{ color: 'var(--accent)', fontWeight: 700 }}>✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

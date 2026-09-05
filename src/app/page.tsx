@@ -1,7 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
+import { prisma } from "@/lib/prisma";
 
-export default function Home() {
+export default async function Home() {
+  const services = await prisma.service.findMany({ take: 3, orderBy: { title: 'asc' } });
+  const courses = await prisma.course.findMany({ take: 3, orderBy: { title: 'asc' } });
+
   return (
     <>
       <section className="hero hero-new">
@@ -133,57 +137,29 @@ export default function Home() {
               From the first walk-through to certification and ongoing compliance, our five core service lines cover the full lifecycle of Occupational Safety, Health and Environment management.
             </p>
           </div>
-          <div className="row-list">
-            <div className="row-item">
-              <div className="num">01</div>
-              <div>
-                <h3>Risk Assessment & Workplace Safety Audits</h3>
-                <p>
-                  Detailed evaluations, hazard identification and control using a structured 5-step risk methodology, plus ergonomic and equipment assessments.
-                </p>
+          <div className="wp-card-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
+            {services.map((service) => (
+              <div key={service.id} className="wp-card">
+                {service.imageUrl && (
+                  <img src={service.imageUrl} alt={service.title} className="wp-card-img" />
+                )}
+                <div className="wp-card-content">
+                  <div className="wp-card-category">{service.category}</div>
+                  <h3 className="wp-card-title">{service.title}</h3>
+                  <p className="wp-card-desc">{service.description}</p>
+                  <div className="wp-card-footer">
+                    <Link href={`/services/${service.id}`} className="wp-card-btn">
+                      Learn More
+                    </Link>
+                  </div>
+                </div>
               </div>
-              <Link href="/services#risk" className="go">&rarr;</Link>
-            </div>
-            <div className="row-item">
-              <div className="num">02</div>
-              <div>
-                <h3>Management Systems, ISO & Legal Compliance</h3>
-                <p>
-                  Regulatory and legal compliance guidance, ISO 9001 / 14001 / 45001 management systems, ESIA, and secure HSSE data management.
-                </p>
-              </div>
-              <Link href="/services#management" className="go">&rarr;</Link>
-            </div>
-            <div className="row-item">
-              <div className="num">03</div>
-              <div>
-                <h3>Training, Competence & Culture Development</h3>
-                <p>
-                  Custom OSH programs, HSSE training and education, and targeted training needs assessments for every organizational level.
-                </p>
-              </div>
-              <Link href="/services#training" className="go">&rarr;</Link>
-            </div>
-            <div className="row-item">
-              <div className="num">04</div>
-              <div>
-                <h3>Incident Investigation & Post-Accident Support</h3>
-                <p>
-                  Root cause analysis, post-incident reviews, legal fulfilment support, and trauma support for affected personnel.
-                </p>
-              </div>
-              <Link href="/services#investigation" className="go">&rarr;</Link>
-            </div>
-            <div className="row-item">
-              <div className="num">05</div>
-              <div>
-                <h3>PPE & Safety Equipment Supply</h3>
-                <p>
-                  Certified personal protective equipment, fire extinguishers, compliant safety signage, and standardized first-aid kits.
-                </p>
-              </div>
-              <Link href="/services#ppe" className="go">&rarr;</Link>
-            </div>
+            ))}
+          </div>
+          <div style={{ marginTop: 36, textAlign: 'center' }}>
+            <Link href="/services" className="btn btn-solid">
+              See All Services <span className="btn-arrow">&rarr;</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -284,33 +260,27 @@ export default function Home() {
             <h2>Practical, certificate-bearing courses</h2>
             <p>Hands-on OSH training designed to build competent, safety-conscious teams at every level.</p>
           </div>
-          <div className="row-list" style={{ borderTop: "1px solid var(--line)" }}>
-            <div className="row-item">
-              <div className="num">&#9679;</div>
-              <div>
-                <h3>Occupational Safety & Health (OSH) Training</h3>
-                <p>From training rationale to job safety analysis — a complete instructional programme for safety professionals.</p>
+          <div className="wp-card-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
+            {courses.map((course) => (
+              <div key={course.id} className="wp-card">
+                {course.imageUrl && (
+                  <img src={course.imageUrl} alt={course.title} className="wp-card-img" />
+                )}
+                <div className="wp-card-content">
+                  <div className="wp-card-category">{course.category}</div>
+                  <h3 className="wp-card-title">{course.title}</h3>
+                  <p className="wp-card-desc">{course.description}</p>
+                  <div className="wp-card-footer">
+                    <Link href={`/courses/${course.id}`} className="wp-card-btn">
+                      Learn More
+                    </Link>
+                    {course.price && <div className="wp-card-price">${course.price}</div>}
+                  </div>
+                </div>
               </div>
-              <Link href="/courses#osh" className="go">&rarr;</Link>
-            </div>
-            <div className="row-item">
-              <div className="num">&#9679;</div>
-              <div>
-                <h3>Fire Safety & Emergency Response</h3>
-                <p>Fire suppression, emergency action planning, and Emergency Response Team roles and operations.</p>
-              </div>
-              <Link href="/courses#fire" className="go">&rarr;</Link>
-            </div>
-            <div className="row-item">
-              <div className="num">&#9679;</div>
-              <div>
-                <h3>First Aid & CPR Certification</h3>
-                <p>Scene safety, primary survey, CPR, AED use, and management of medical emergencies.</p>
-              </div>
-              <Link href="/courses#firstaid" className="go">&rarr;</Link>
-            </div>
+            ))}
           </div>
-          <div style={{ marginTop: 36 }}>
+          <div style={{ marginTop: 36, textAlign: 'center' }}>
             <Link href="/courses" className="btn btn-solid">
               See All Courses <span className="btn-arrow">&rarr;</span>
             </Link>

@@ -40,22 +40,23 @@ export default function RootLayout({
           <div className="container nav-wrap">
             <Link href="/" className="brand">
               <span className="brand-mark"><span>4M</span></span>
-              <span>4 MAX SAFETY<small>Occupational Safety &middot; Health &middot; Environment</small></span>
+              <span>4 MAX SAFETY</span>
             </Link>
             <nav className="main-nav">
               <ul>
                 <li><Link href="/">Home</Link></li>
                 <li>
-                  <Link href="/about">About<i className="caret"></i></Link>
+                  <Link href="/about">About</Link>
                   <div className="dropdown">
                     <Link href="/about#who">Who We Are</Link>
                     <Link href="/about#vision">Our Vision & Mission</Link>
                     <Link href="/about#team">Our Team</Link>
                     <Link href="/about#values">Our Core Values</Link>
+                    <Link href="/about#who-we-serve">Who We Serve</Link>
                   </div>
                 </li>
                 <li>
-                  <Link href="/services">Services<i className="caret"></i></Link>
+                  <Link href="/services">Services</Link>
                   <div className="dropdown">
                     <Link href="/services#risk">Risk Assessment & Audits</Link>
                     <Link href="/services#management">Management Systems & ISO</Link>
@@ -65,7 +66,7 @@ export default function RootLayout({
                   </div>
                 </li>
                 <li>
-                  <Link href="/courses">Courses<i className="caret"></i></Link>
+                  <Link href="/courses">Courses</Link>
                   <div className="dropdown">
                     <Link href="/courses#osh">OSH Training</Link>
                     <Link href="/courses#fire">Fire Safety & Emergency Response</Link>
@@ -106,7 +107,7 @@ export default function RootLayout({
                   <li><Link href="/courses">Courses</Link></li>
                   <li><Link href="/research">Research & Insights</Link></li>
                   <li><Link href="/contact">Contact</Link></li>
-                  <li><Link href="/admin">Admin Panel</Link></li>
+
                 </ul>
               </div>
               <div>

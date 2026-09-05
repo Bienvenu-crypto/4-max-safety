@@ -12,9 +12,6 @@ export default function Research() {
           />
         </div>
         <div className="container">
-          <div className="crumb">
-            <Link href="/">Home</Link> &nbsp;/&nbsp; Research & Insights
-          </div>
           <h1>Evidence-based thinking on workplace safety</h1>
           <p>Reports, field insights and updates from our consultants — grounded in data, not opinion.</p>
         </div>

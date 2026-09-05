@@ -1,4 +1,4 @@
--- CreateTable
+
 CREATE TABLE "Course" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "title" TEXT NOT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE "Course" (
     "price" REAL
 );
 
--- CreateTable
+
 CREATE TABLE "Service" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "title" TEXT NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE "Service" (
     "category" TEXT NOT NULL
 );
 
--- CreateTable
+
 CREATE TABLE "Order" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "courseId" TEXT NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE "Order" (
     CONSTRAINT "Order_courseId_fkey" FOREIGN KEY ("courseId") REFERENCES "Course" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
--- CreateTable
+
 CREATE TABLE "ServiceRequest" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "serviceId" TEXT NOT NULL,

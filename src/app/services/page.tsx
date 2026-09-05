@@ -5,9 +5,27 @@ export default async function Services(props: { searchParams: Promise<{ success?
   const searchParams = await props.searchParams;
   const success = searchParams.success === 'true';
 
-  const services = await prisma.service.findMany({
-    orderBy: { title: 'asc' }
-  });
+  const services = await prisma.service.findMany({ orderBy: { category: 'asc' } });
+
+  // Group services by category
+  const grouped = services.reduce((acc, service) => {
+    if (!acc[service.category]) acc[service.category] = [];
+    acc[service.category].push(service);
+    return acc;
+  }, {} as Record<string, typeof services>);
+
+  const categoryOrder = [
+    "Risk Assessment & Workplace Safety Audits",
+    "Management Systems, ISO & Legal Compliance",
+    "Training, Competence & Culture Development",
+    "Incident Investigation & Post-Accident Support",
+    "PPE & Safety Equipment Supply",
+  ];
+
+  const sortedCategories = [
+    ...categoryOrder.filter(c => grouped[c]),
+    ...Object.keys(grouped).filter(c => !categoryOrder.includes(c)),
+  ];
 
   return (
     <>
@@ -19,12 +37,10 @@ export default async function Services(props: { searchParams: Promise<{ success?
           />
         </div>
         <div className="container">
-          <div className="crumb">
-            <Link href="/">Home</Link> &nbsp;/&nbsp; Services
-          </div>
           <h1>Comprehensive safety solutions for every industry</h1>
           <p>
-            From the first walk-through to certification and ongoing compliance, our core service lines cover the full lifecycle of Occupational Safety, Health and Environment management.
+            We offer a comprehensive range of Occupational Safety, Security, Health and Environment
+            consulting services, tailored to address all aspects of your workplace safety needs.
           </p>
         </div>
       </section>
@@ -33,49 +49,47 @@ export default async function Services(props: { searchParams: Promise<{ success?
         <div className="container">
           {success && (
             <div style={{
-              background: '#d4edda',
-              border: '1px solid #c3e6cb',
-              color: '#155724',
-              padding: '18px 24px',
-              borderRadius: '8px',
-              marginBottom: '40px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px',
-              fontSize: '15px'
+              background: '#d4edda', border: '1px solid #c3e6cb', color: '#155724',
+              padding: '18px 24px', borderRadius: '8px', marginBottom: '40px',
+              display: 'flex', alignItems: 'center', gap: '12px', fontSize: '15px'
             }}>
               <span style={{ fontSize: '22px' }}>✅</span>
-              <span>
-                <strong>Service request submitted successfully!</strong> One of our consultants will contact you within 24 hours to schedule a consultation.
-              </span>
+              <span><strong>Service request submitted successfully!</strong> One of our consultants will contact you within 24 hours.</span>
             </div>
           )}
 
-          {services.length === 0 ? (
-            <div style={{ textAlign: "center", padding: "60px 0", color: "var(--muted)" }}>
-              <p>No services found in the database. Please run the seed script to populate services.</p>
-            </div>
-          ) : (
-            <div className="wp-card-grid">
-              {services.map((service) => (
-                <div key={service.id} className="wp-card">
-                  {service.imageUrl && (
-                    <img src={service.imageUrl} alt={service.title} className="wp-card-img" />
-                  )}
-                  <div className="wp-card-content">
-                    <div className="wp-card-category">{service.category}</div>
-                    <h3 className="wp-card-title">{service.title}</h3>
-                    <p className="wp-card-desc">{service.description}</p>
-                    <div className="wp-card-footer">
-                      <Link href={`/services/${service.id}`} className="wp-card-btn">
-                        Learn More
-                      </Link>
+          {sortedCategories.map((category, index) => (
+            <div key={category} style={{ marginBottom: '64px' }}>
+              {/* Category Header */}
+              <div style={{ marginBottom: '32px', textAlign: 'center' }}>
+                <span style={{ display: 'inline-block', background: 'var(--accent)', color: 'white', fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '4px 12px', borderRadius: '4px', marginBottom: '10px' }}>
+                  Core Service
+                </span>
+                <h2 style={{ fontSize: '28px', fontWeight: 700, margin: 0 }}>{index + 1}. {category}</h2>
+              </div>
+
+              {/* Cards Grid */}
+              <div className="wp-card-grid">
+                {grouped[category].map((service) => (
+                  <div key={service.id} className="wp-card">
+                    {service.imageUrl && (
+                      <img src={service.imageUrl} alt={service.title} className="wp-card-img" />
+                    )}
+                    <div className="wp-card-content">
+                      <div className="wp-card-category">{service.category}</div>
+                      <h3 className="wp-card-title">{service.title}</h3>
+                      <p className="wp-card-desc">{service.description}</p>
+                      <div className="wp-card-footer">
+                        <Link href={`/services/${service.id}`} className="wp-card-btn">
+                          Learn More
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          )}
+          ))}
         </div>
       </section>
 

@@ -24,9 +24,6 @@ export default async function CourseDetail(props: { params: Promise<{ id: string
           />
         </div>
         <div className="container">
-          <div className="crumb">
-            <Link href="/">Home</Link> &nbsp;/&nbsp; <Link href="/courses">Courses</Link> &nbsp;/&nbsp; {course.category}
-          </div>
           <h1 style={{ maxWidth: '800px' }}>{course.title}</h1>
         </div>
       </section>

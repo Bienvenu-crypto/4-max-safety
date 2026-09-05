@@ -12,7 +12,7 @@ export default async function ServiceDetail(props: { params: Promise<{ id: strin
     notFound();
   }
 
-  // Split content by newlines to render paragraphs/bullet points
+
   const contentParagraphs = service.content ? service.content.split('\n') : [];
 
   return (
@@ -25,9 +25,6 @@ export default async function ServiceDetail(props: { params: Promise<{ id: strin
           />
         </div>
         <div className="container">
-          <div className="crumb">
-            <Link href="/">Home</Link> &nbsp;/&nbsp; <Link href="/services">Services</Link> &nbsp;/&nbsp; {service.category}
-          </div>
           <h1 style={{ maxWidth: '800px' }}>{service.title}</h1>
         </div>
       </section>

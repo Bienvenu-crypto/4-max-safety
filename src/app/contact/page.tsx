@@ -12,9 +12,6 @@ export default function Contact() {
           />
         </div>
         <div className="container">
-          <div className="crumb">
-            <Link href="/">Home</Link> &nbsp;/&nbsp; Contact
-          </div>
           <h1>Let's talk about your workplace safety</h1>
           <p>
             Reach out for audits, training, ISO consultancy, or PPE supply — our team responds within one business day.
