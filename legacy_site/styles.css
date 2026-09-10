@@ -1,26 +1,21 @@
-/* ============================================================
-   4 MAX SAFETY — stylesheet
-   Font: Poppins throughout
-   ============================================================ */
-
 :root {
-  /* --- colour tokens --- */
+
   --ink: #142430;
-  /* deep navy-charcoal: headings, dark sections */
+
   --ink-soft: #1C3140;
   --paper: #FAF8F3;
-  /* warm off-white page background */
+
   --paper-2: #F1ECDF;
-  /* deeper warm section background */
+
   --line: transparent;
-  /* hairline rule, warm stone */
+
   --muted: #5B6672;
-  /* secondary / body-soft text */
+
   --accent: #E15B0F;
-  /* safety orange — primary accent */
+
   --accent-dark: #B8480A;
   --amber: #F5A623;
-  /* safety amber — secondary accent */
+
   --white: #FFFFFF;
 
   --stripe: repeating-linear-gradient(135deg,
@@ -32,7 +27,7 @@
   --ease: cubic-bezier(.4, 0, .2, 1);
 }
 
-/* ---------------- base / reset ---------------- */
+
 *,
 *::before,
 *::after {
@@ -106,7 +101,7 @@ section {
   }
 }
 
-/* ---------------- utility ---------------- */
+
 .eyebrow {
   display: none !important;
 }
@@ -209,7 +204,7 @@ section {
   color: var(--muted);
 }
 
-/* ================= HEADER ================= */
+
 .topbar {
   background: var(--ink);
   color: rgba(255, 255, 255, .82);
@@ -380,7 +375,6 @@ nav.main-nav>ul>li:hover .dropdown {
 
 .dropdown a:hover {
   background: var(--paper-2);
-  border-left-color: var(--accent);
   color: var(--accent-dark);
 }
 
@@ -464,7 +458,7 @@ nav.main-nav>ul>li:hover .dropdown {
   }
 }
 
-/* ================= HERO ================= */
+
 .hero {
   position: relative;
   min-height: 88vh;
@@ -594,7 +588,7 @@ nav.main-nav>ul>li:hover .dropdown {
   }
 }
 
-/* page (interior) header banner */
+
 .page-banner {
   position: relative;
   color: var(--white);
@@ -637,7 +631,7 @@ nav.main-nav>ul>li:hover .dropdown {
   margin-top: 12px;
 }
 
-/* ================= TICKER ================= */
+
 .ticker {
   background: var(--ink);
   color: var(--paper);
@@ -676,7 +670,7 @@ nav.main-nav>ul>li:hover .dropdown {
   }
 }
 
-/* ================= SECTIONS ================= */
+
 .section {
   padding: 96px 0;
 }
@@ -709,7 +703,7 @@ nav.main-nav>ul>li:hover .dropdown {
   margin: 0;
 }
 
-/* --- split (image | text) block, used instead of cards --- */
+
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -779,7 +773,7 @@ nav.main-nav>ul>li:hover .dropdown {
   }
 }
 
-/* --- quote / vision block --- */
+
 .quote-block {
   background: var(--ink);
   color: var(--white);
@@ -816,7 +810,7 @@ nav.main-nav>ul>li:hover .dropdown {
   color: var(--amber);
 }
 
-/* --- numbered row list (services / why-us / process) --- */
+
 .row-list {
   border-top: 1px solid var(--line);
 }
@@ -881,7 +875,7 @@ nav.main-nav>ul>li:hover .dropdown {
   }
 }
 
-/* --- icon-row (no border box, plain list w/ icon) --- */
+
 .icon-rows {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -925,7 +919,7 @@ nav.main-nav>ul>li:hover .dropdown {
   }
 }
 
-/* --- why-choose numbered (01/02/03/04) --- */
+
 .why-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -973,7 +967,7 @@ nav.main-nav>ul>li:hover .dropdown {
   }
 }
 
-/* --- team (plain grid, no card box) --- */
+
 .team-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -1041,7 +1035,7 @@ nav.main-nav>ul>li:hover .dropdown {
   }
 }
 
-/* --- values list --- */
+
 .values-list {
   columns: 2;
   column-gap: 60px;
@@ -1073,7 +1067,7 @@ nav.main-nav>ul>li:hover .dropdown {
   }
 }
 
-/* --- course list --- */
+
 .course-item {
   border-bottom: 1px solid var(--line);
   padding: 30px 0;
@@ -1154,7 +1148,7 @@ nav.main-nav>ul>li:hover .dropdown {
   color: var(--white);
 }
 
-/* --- industries strip --- */
+
 .chips {
   display: flex;
   flex-wrap: wrap;
@@ -1170,7 +1164,7 @@ nav.main-nav>ul>li:hover .dropdown {
   background: var(--white);
 }
 
-/* --- CTA banner --- */
+
 .cta-banner {
   position: relative;
   color: var(--white);
@@ -1206,7 +1200,7 @@ nav.main-nav>ul>li:hover .dropdown {
   margin-top: 34px;
 }
 
-/* ================= FOOTER ================= */
+
 footer.site-footer {
   background: var(--ink-soft);
   color: rgba(255, 255, 255, .72);
@@ -1307,7 +1301,7 @@ footer .contact-line {
   }
 }
 
-/* whatsapp float */
+
 .wa-float {
   position: fixed;
   bottom: 26px;
@@ -1328,7 +1322,7 @@ footer .contact-line {
   transform: scale(1.06);
 }
 
-/* reveal on scroll */
+
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -1340,7 +1334,7 @@ footer .contact-line {
   transform: translateY(0);
 }
 
-/* generic two-col text */
+
 .two-col {
   display: grid;
   grid-template-columns: 280px 1fr;

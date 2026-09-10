@@ -37,7 +37,7 @@ export default function AboutPage() {
       <section className="section on-paper2">
         <div className="container">
           <div className="section-head center">
-            <h2>Vision & Mission</h2>
+            <h2>Vision and Mission</h2>
             <p>The foundation of our commitment to safety</p>
           </div>
           <div className="split" style={{ gap: '30px' }}>

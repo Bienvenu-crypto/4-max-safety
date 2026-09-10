@@ -383,7 +383,6 @@ nav.main-nav>ul>li:hover .dropdown {
 
 .dropdown a:hover {
   background: rgba(0, 0, 0, 0.04);
-  border-left-color: #17d2cd;
   color: #1a2a6c;
 }
 

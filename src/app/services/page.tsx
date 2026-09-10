@@ -7,7 +7,7 @@ export default async function Services(props: { searchParams: Promise<{ success?
 
   const services = await prisma.service.findMany({ orderBy: { category: 'asc' } });
 
-  // Group services by category
+
   const grouped = services.reduce((acc, service) => {
     if (!acc[service.category]) acc[service.category] = [];
     acc[service.category].push(service);

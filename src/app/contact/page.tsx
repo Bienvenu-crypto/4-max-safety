@@ -1,7 +1,10 @@
 import Link from "next/link";
-import Image from "next/image";
+import { submitContact } from "@/app/actions";
 
-export default function Contact() {
+export default async function Contact(props: { searchParams: Promise<{ success?: string }> }) {
+  const searchParams = await props.searchParams;
+  const success = searchParams.success === "true";
+
   return (
     <>
       <section className="page-banner" style={{ paddingBottom: 0 }}>
@@ -66,43 +69,60 @@ export default function Contact() {
           <div>
             <span className="eyebrow">Send A Message</span>
             <h2 style={{ fontSize: "28px" }}>Request A Quote</h2>
-            <form action="mailto:oryemdavidmark64@gmail.com" method="post" encType="text/plain">
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "18px", marginBottom: "18px" }}>
-                <div>
-                  <label style={{ fontSize: "12.5px", fontWeight: 600, letterSpacing: ".04em", textTransform: "uppercase", color: "var(--muted)" }}>Full Name</label>
-                  <input type="text" required style={{ width: "100%", marginTop: "8px", padding: "14px 16px", border: "1.5px solid var(--line)", fontFamily: "inherit", fontSize: "14.5px", background: "var(--white)" }} />
-                </div>
-                <div>
-                  <label style={{ fontSize: "12.5px", fontWeight: 600, letterSpacing: ".04em", textTransform: "uppercase", color: "var(--muted)" }}>Organization</label>
-                  <input type="text" style={{ width: "100%", marginTop: "8px", padding: "14px 16px", border: "1.5px solid var(--line)", fontFamily: "inherit", fontSize: "14.5px", background: "var(--white)" }} />
-                </div>
+
+            {success ? (
+              <div style={{
+                background: "#d4edda", border: "1px solid #c3e6cb", color: "#155724",
+                padding: "24px 28px", borderRadius: "8px", marginTop: "24px"
+              }}>
+                <div style={{ fontSize: "28px", marginBottom: "12px" }}>✅</div>
+                <h3 style={{ margin: "0 0 8px", color: "#155724" }}>Message sent successfully!</h3>
+                <p style={{ margin: "0 0 16px", fontSize: "14px", lineHeight: 1.6 }}>
+                  Thank you for reaching out. Our team will respond within one business day.
+                </p>
+                <Link href="/contact" style={{ color: "#155724", fontWeight: 600, fontSize: "14px", textDecoration: "underline" }}>
+                  ← Send another message
+                </Link>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "18px", marginBottom: "18px" }}>
-                <div>
-                  <label style={{ fontSize: "12.5px", fontWeight: 600, letterSpacing: ".04em", textTransform: "uppercase", color: "var(--muted)" }}>Email</label>
-                  <input type="email" required style={{ width: "100%", marginTop: "8px", padding: "14px 16px", border: "1.5px solid var(--line)", fontFamily: "inherit", fontSize: "14.5px", background: "var(--white)" }} />
+            ) : (
+              <form action={submitContact} style={{ marginTop: "4px" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "18px", marginBottom: "18px" }}>
+                  <div>
+                    <label style={{ fontSize: "12.5px", fontWeight: 600, letterSpacing: ".04em", textTransform: "uppercase", color: "var(--muted)" }}>Full Name *</label>
+                    <input type="text" name="name" required style={{ width: "100%", marginTop: "8px", padding: "14px 16px", border: "1.5px solid var(--line)", fontFamily: "inherit", fontSize: "14.5px", background: "var(--white)", borderRadius: "4px" }} />
+                  </div>
+                  <div>
+                    <label style={{ fontSize: "12.5px", fontWeight: 600, letterSpacing: ".04em", textTransform: "uppercase", color: "var(--muted)" }}>Organization</label>
+                    <input type="text" name="organisation" style={{ width: "100%", marginTop: "8px", padding: "14px 16px", border: "1.5px solid var(--line)", fontFamily: "inherit", fontSize: "14.5px", background: "var(--white)", borderRadius: "4px" }} />
+                  </div>
                 </div>
-                <div>
-                  <label style={{ fontSize: "12.5px", fontWeight: 600, letterSpacing: ".04em", textTransform: "uppercase", color: "var(--muted)" }}>Phone</label>
-                  <input type="tel" style={{ width: "100%", marginTop: "8px", padding: "14px 16px", border: "1.5px solid var(--line)", fontFamily: "inherit", fontSize: "14.5px", background: "var(--white)" }} />
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "18px", marginBottom: "18px" }}>
+                  <div>
+                    <label style={{ fontSize: "12.5px", fontWeight: 600, letterSpacing: ".04em", textTransform: "uppercase", color: "var(--muted)" }}>Email *</label>
+                    <input type="email" name="email" required style={{ width: "100%", marginTop: "8px", padding: "14px 16px", border: "1.5px solid var(--line)", fontFamily: "inherit", fontSize: "14.5px", background: "var(--white)", borderRadius: "4px" }} />
+                  </div>
+                  <div>
+                    <label style={{ fontSize: "12.5px", fontWeight: 600, letterSpacing: ".04em", textTransform: "uppercase", color: "var(--muted)" }}>Phone</label>
+                    <input type="tel" name="phone" style={{ width: "100%", marginTop: "8px", padding: "14px 16px", border: "1.5px solid var(--line)", fontFamily: "inherit", fontSize: "14.5px", background: "var(--white)", borderRadius: "4px" }} />
+                  </div>
                 </div>
-              </div>
-              <div style={{ marginBottom: "18px" }}>
-                <label style={{ fontSize: "12.5px", fontWeight: 600, letterSpacing: ".04em", textTransform: "uppercase", color: "var(--muted)" }}>Service Of Interest</label>
-                <select style={{ width: "100%", marginTop: "8px", padding: "14px 16px", border: "1.5px solid var(--line)", fontFamily: "inherit", fontSize: "14.5px", background: "var(--white)" }}>
-                  <option>Risk Assessment & Audits</option>
-                  <option>Management Systems & ISO</option>
-                  <option>Training & Courses</option>
-                  <option>Incident Investigation</option>
-                  <option>PPE & Equipment Supply</option>
-                </select>
-              </div>
-              <div style={{ marginBottom: "24px" }}>
-                <label style={{ fontSize: "12.5px", fontWeight: 600, letterSpacing: ".04em", textTransform: "uppercase", color: "var(--muted)" }}>Message</label>
-                <textarea rows={5} required style={{ width: "100%", marginTop: "8px", padding: "14px 16px", border: "1.5px solid var(--line)", fontFamily: "inherit", fontSize: "14.5px", background: "var(--white)", resize: "vertical" }}></textarea>
-              </div>
-              <button type="submit" className="btn btn-solid">Send Message <span className="btn-arrow">&rarr;</span></button>
-            </form>
+                <div style={{ marginBottom: "18px" }}>
+                  <label style={{ fontSize: "12.5px", fontWeight: 600, letterSpacing: ".04em", textTransform: "uppercase", color: "var(--muted)" }}>Service Of Interest</label>
+                  <select name="service" style={{ width: "100%", marginTop: "8px", padding: "14px 16px", border: "1.5px solid var(--line)", fontFamily: "inherit", fontSize: "14.5px", background: "var(--white)", borderRadius: "4px" }}>
+                    <option>Risk Assessment &amp; Audits</option>
+                    <option>Management Systems &amp; ISO</option>
+                    <option>Training &amp; Courses</option>
+                    <option>Incident Investigation</option>
+                    <option>PPE &amp; Equipment Supply</option>
+                  </select>
+                </div>
+                <div style={{ marginBottom: "24px" }}>
+                  <label style={{ fontSize: "12.5px", fontWeight: 600, letterSpacing: ".04em", textTransform: "uppercase", color: "var(--muted)" }}>Message *</label>
+                  <textarea name="message" rows={5} required style={{ width: "100%", marginTop: "8px", padding: "14px 16px", border: "1.5px solid var(--line)", fontFamily: "inherit", fontSize: "14.5px", background: "var(--white)", resize: "vertical", borderRadius: "4px" }}></textarea>
+                </div>
+                <button type="submit" className="btn btn-solid">Send Message <span className="btn-arrow">&rarr;</span></button>
+              </form>
+            )}
           </div>
         </div>
       </section>

@@ -7,19 +7,19 @@ export default function ClientScript() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // 1. Mobile nav toggle
+
     const toggle = document.querySelector('.nav-toggle');
     const nav = document.querySelector('.main-nav');
-    
+
     const handleToggleClick = () => {
       nav?.classList.toggle('open');
     };
-    
+
     if (toggle && nav) {
       toggle.addEventListener('click', handleToggleClick);
     }
 
-    // 2. Mobile submenu accordion
+
     const mainNavLi = document.querySelectorAll('.main-nav > ul > li');
     const handleLiClick = (e: Event) => {
       if (window.innerWidth <= 980) {
@@ -31,7 +31,7 @@ export default function ClientScript() {
         }
       }
     };
-    
+
     mainNavLi.forEach((li) => {
       const link = li.querySelector('a');
       if (link) {
@@ -39,7 +39,7 @@ export default function ClientScript() {
       }
     });
 
-    // 3. Duplicate ticker content for seamless loop
+
     const tracks = document.querySelectorAll('.ticker-track');
     tracks.forEach((track) => {
       if (track.getAttribute('data-duplicated') !== 'true') {
@@ -48,7 +48,7 @@ export default function ClientScript() {
       }
     });
 
-    // 4. Reveal on scroll
+
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -63,7 +63,7 @@ export default function ClientScript() {
       io.observe(el);
     });
 
-    // Cleanup
+
     return () => {
       if (toggle) toggle.removeEventListener('click', handleToggleClick);
       mainNavLi.forEach((li) => li.removeEventListener('click', handleLiClick));

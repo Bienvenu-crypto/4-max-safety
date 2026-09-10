@@ -9,15 +9,13 @@ const adapter = new PrismaBetterSqlite3({
 const prisma = new PrismaClient({ adapter });
 
 async function main() {
-  // Clear existing to avoid duplicates on re-seed
+
   await prisma.order.deleteMany({});
   await prisma.serviceRequest.deleteMany({});
   await prisma.course.deleteMany({});
   await prisma.service.deleteMany({});
 
-  // ─────────────────────────────────────────────────────────────────────────
-  // CATEGORY 1: Risk Assessment & Workplace Safety Audits
-  // ─────────────────────────────────────────────────────────────────────────
+
   await prisma.service.createMany({
     data: [
       {
@@ -51,9 +49,7 @@ async function main() {
     ]
   });
 
-  // ─────────────────────────────────────────────────────────────────────────
-  // CATEGORY 2: Management Systems, ISO & Legal Compliance
-  // ─────────────────────────────────────────────────────────────────────────
+
   await prisma.service.createMany({
     data: [
       {
@@ -94,9 +90,7 @@ async function main() {
     ]
   });
 
-  // ─────────────────────────────────────────────────────────────────────────
-  // CATEGORY 3: Training, Competence & Culture Development
-  // ─────────────────────────────────────────────────────────────────────────
+
   await prisma.service.createMany({
     data: [
       {
@@ -123,9 +117,7 @@ async function main() {
     ]
   });
 
-  // ─────────────────────────────────────────────────────────────────────────
-  // CATEGORY 4: Incident Investigation & Post-Accident Support
-  // ─────────────────────────────────────────────────────────────────────────
+
   await prisma.service.createMany({
     data: [
       {
@@ -145,9 +137,6 @@ async function main() {
     ]
   });
 
-  // ─────────────────────────────────────────────────────────────────────────
-  // CATEGORY 5: PPE & Safety Equipment Supply
-  // ─────────────────────────────────────────────────────────────────────────
   await prisma.service.createMany({
     data: [
       {
@@ -167,11 +156,7 @@ async function main() {
     ]
   });
 
-  // ─────────────────────────────────────────────────────────────────────────
-  // COURSES
-  // ─────────────────────────────────────────────────────────────────────────
 
-  // Category: OSH Training
   await prisma.course.createMany({
     data: [
       {
@@ -195,7 +180,7 @@ async function main() {
     ]
   });
 
-  // Category: Fire & Emergency Response
+
   await prisma.course.createMany({
     data: [
       {
@@ -210,7 +195,7 @@ async function main() {
     ]
   });
 
-  // Category: First Aid & CPR
+
   await prisma.course.createMany({
     data: [
       {
@@ -225,7 +210,7 @@ async function main() {
     ]
   });
 
-  // Category: Environmental Management
+
   await prisma.course.createMany({
     data: [
       {
@@ -249,7 +234,7 @@ async function main() {
     ]
   });
 
-  // Category: PPE Training
+
   await prisma.course.createMany({
     data: [
       {
@@ -264,7 +249,7 @@ async function main() {
     ]
   });
 
-  // Category: Audits & Inspections
+
   await prisma.course.createMany({
     data: [
       {
@@ -279,7 +264,7 @@ async function main() {
     ]
   });
 
-  // Category: Incident Investigation
+
   await prisma.course.createMany({
     data: [
       {
@@ -294,7 +279,7 @@ async function main() {
     ]
   });
 
-  // Category: Health & Safety Management
+
   await prisma.course.createMany({
     data: [
       {
@@ -327,7 +312,7 @@ async function main() {
     ]
   });
 
-  // Category: Data & Systems Management
+
   await prisma.course.createMany({
     data: [
       {
