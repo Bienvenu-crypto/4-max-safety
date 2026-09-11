@@ -64,7 +64,10 @@ export default async function Courses(props: { searchParams: Promise<{ success?:
           {sortedCategories.map((category, index) => (
             <div key={category} style={{ marginBottom: '64px' }}>
 
-              <div style={{ marginBottom: '32px', textAlign: 'center' }}>
+              <div
+                id={category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}
+                style={{ marginBottom: '32px', textAlign: 'center' }}
+              >
                 <span style={{ display: 'inline-block', background: 'var(--accent)', color: 'white', fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '4px 12px', borderRadius: '4px', marginBottom: '10px' }}>
                   Training Programme
                 </span>

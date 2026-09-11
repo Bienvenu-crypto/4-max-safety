@@ -68,11 +68,11 @@ export default function RootLayout({
                 <li>
                   <Link href="/courses">Courses</Link>
                   <div className="dropdown">
-                    <Link href="/courses#osh">OSH Training</Link>
-                    <Link href="/courses#fire">Fire Safety & Emergency Response</Link>
-                    <Link href="/courses#firstaid">First Aid & CPR</Link>
-                    <Link href="/courses#ppe">Use of PPE</Link>
-                    <Link href="/courses#audits">Safety Audits & Inspections</Link>
+                    <Link href="/courses#osh-training">OSH Training</Link>
+                    <Link href="/courses#fire-emergency-response">Fire Safety & Emergency Response</Link>
+                    <Link href="/courses#first-aid-cpr">First Aid & CPR</Link>
+                    <Link href="/courses#ppe-training">Use of PPE</Link>
+                    <Link href="/courses#audits-inspections">Safety Audits & Inspections</Link>
                   </div>
                 </li>
                 <li><Link href="/research">Research & Insights</Link></li>
