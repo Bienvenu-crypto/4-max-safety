@@ -48,7 +48,7 @@ export default async function Courses(props: { searchParams: Promise<{ success?:
         </div>
       </section>
 
-      <section className="section reveal">
+      <section className="section">
         <div className="container">
           {success && (
             <div style={{
@@ -62,7 +62,7 @@ export default async function Courses(props: { searchParams: Promise<{ success?:
           )}
 
           {sortedCategories.map((category, index) => (
-            <div key={category} style={{ marginBottom: '64px' }}>
+            <div key={category} className="reveal" style={{ marginBottom: '64px' }}>
 
               <div
                 id={category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}

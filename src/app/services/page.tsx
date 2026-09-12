@@ -45,7 +45,7 @@ export default async function Services(props: { searchParams: Promise<{ success?
         </div>
       </section>
 
-      <section className="section reveal">
+      <section className="section">
         <div className="container">
           {success && (
             <div style={{
@@ -59,7 +59,7 @@ export default async function Services(props: { searchParams: Promise<{ success?
           )}
 
           {sortedCategories.map((category, index) => (
-            <div key={category} style={{ marginBottom: '64px' }}>
+            <div key={category} className="reveal" style={{ marginBottom: '64px' }}>
               {/* Category Header */}
               <div style={{ marginBottom: '32px', textAlign: 'center' }}>
                 <span style={{ display: 'inline-block', background: 'var(--accent)', color: 'white', fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '4px 12px', borderRadius: '4px', marginBottom: '10px' }}>

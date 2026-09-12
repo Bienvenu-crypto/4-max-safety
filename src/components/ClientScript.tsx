@@ -56,7 +56,7 @@ export default function ClientScript() {
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.01 });
 
     const reveals = document.querySelectorAll('.reveal');
     reveals.forEach((el) => {
