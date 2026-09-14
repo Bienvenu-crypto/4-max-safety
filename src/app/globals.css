@@ -783,10 +783,12 @@ nav.main-nav>ul>li:hover .dropdown {
 
 
 .quote-block {
-  background: var(--ink);
-  color: var(--white);
+  background: #ffffff;
+  color: #0F172A;
   padding: 64px 0;
   position: relative;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .quote-block .container {
@@ -796,7 +798,7 @@ nav.main-nav>ul>li:hover .dropdown {
 
 .quote-block .mark {
   font-size: 70px;
-  color: var(--amber);
+  color: var(--accent);
   line-height: .4;
   font-family: Georgia, serif;
   display: block;
@@ -805,9 +807,9 @@ nav.main-nav>ul>li:hover .dropdown {
 
 .quote-block p {
   font-size: clamp(20px, 2.6vw, 28px);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.5;
-  color: var(--white);
+  color: #0F172A;
 }
 
 .quote-block .who {
@@ -815,7 +817,8 @@ nav.main-nav>ul>li:hover .dropdown {
   font-size: 13px;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--amber);
+  color: var(--accent);
+  font-weight: 700;
 }
 
 
@@ -952,15 +955,23 @@ nav.main-nav>ul>li:hover .dropdown {
 }
 
 .why-item h4 {
-  color: var(--white);
+  color: var(--ink);
   font-size: 17px;
   margin-bottom: 10px;
 }
 
 .why-item p {
-  color: rgba(255, 255, 255, .65);
+  color: var(--muted);
   font-size: 14.5px;
   margin: 0;
+}
+
+.section.on-ink .why-item h4 {
+  color: var(--white);
+}
+
+.section.on-ink .why-item p {
+  color: rgba(255, 255, 255, .65);
 }
 
 @media(max-width:900px) {
@@ -1210,8 +1221,8 @@ nav.main-nav>ul>li:hover .dropdown {
 
 
 footer.site-footer {
-  background: var(--ink-soft);
-  color: rgba(255, 255, 255, .72);
+  background: #1b367d;
+  color: rgba(255, 255, 255, .82);
   padding-top: 80px;
 }
 
@@ -1628,18 +1639,18 @@ footer .contact-line {
 
 .wp-card {
   background: var(--white);
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
 .wp-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.14), 0 0 20px rgba(0, 168, 204, 0.12);
 }
 
 .wp-card-img {
@@ -1647,6 +1658,11 @@ footer .contact-line {
   height: 220px;
   object-fit: cover;
   border-bottom: 1px solid var(--line);
+  transition: transform 0.5s ease;
+}
+
+.wp-card:hover .wp-card-img {
+  transform: scale(1.05);
 }
 
 .wp-card-content {

@@ -3,8 +3,8 @@ import Image from "next/image";
 import { prisma } from "@/lib/prisma";
 
 export default async function Home() {
-  const services = await prisma.service.findMany({ take: 3, orderBy: { title: 'asc' } });
-  const courses = await prisma.course.findMany({ take: 3, orderBy: { title: 'asc' } });
+  const services = await prisma.service.findMany({ where: { hidden: false }, take: 3, orderBy: { title: 'asc' } });
+  const courses = await prisma.course.findMany({ where: { hidden: false }, take: 3, orderBy: { title: 'asc' } });
 
   return (
     <>
@@ -48,22 +48,7 @@ export default async function Home() {
         </div>
         <div className="hero-stats-new">
           <div className="container">
-            <div className="stat-new">
-              <div className="num-new">19+</div>
-              <div className="lbl-new">SERVICES AVAILABLE</div>
-            </div>
-            <div className="stat-new">
-              <div className="num-new">25+</div>
-              <div className="lbl-new">TRAINING COURSES</div>
-            </div>
-            <div className="stat-new">
-              <div className="num-new">12+</div>
-              <div className="lbl-new">INDUSTRIES SERVED</div>
-            </div>
-            <div className="stat-new">
-              <div className="num-new">OSH Act</div>
-              <div className="lbl-new">COMPLIANT DELIVERY</div>
-            </div>
+
           </div>
         </div>
       </section>
@@ -108,29 +93,30 @@ export default async function Home() {
         </div>
       </section>
 
-      <div className="quote-block reveal">
-        <div className="container">
-          <span className="mark">&ldquo;</span>
-          <p>
-            To be a leading provider of Occupational Safety Health and Environment solutions in the world based on Technical concepts and evidenced delivery of professional services.
-          </p>
-          <div className="who">Our Vision</div>
+      <section className="section reveal" style={{ background: '#ffffff', color: '#0F172A', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)', padding: '64px 0' }}>
+        <div className="container" style={{ maxWidth: '840px', textAlign: 'center' }}>
+          <div style={{ marginBottom: '44px' }}>
+            <h3 style={{ fontSize: '16px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--accent)', marginBottom: '12px' }}>
+              Our Vision
+            </h3>
+            <p style={{ fontSize: 'clamp(20px, 2.5vw, 26px)', fontWeight: 500, lineHeight: 1.5, color: '#0F172A' }}>
+              To be a leading provider of Occupational Safety Health and Environment solutions in the world based on Technical concepts and evidenced delivery of professional services.
+            </p>
+          </div>
+          <div>
+            <h3 style={{ fontSize: '16px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--accent)', marginBottom: '12px' }}>
+              Our Mission
+            </h3>
+            <p style={{ fontSize: 'clamp(20px, 2.5vw, 26px)', fontWeight: 500, lineHeight: 1.5, color: '#0F172A' }}>
+              To provide human Resource, environment and property protections through offering high-quality, practical, and compliant safety solutions and partnerships that foster HSE development internationally.
+            </p>
+          </div>
         </div>
-      </div>
-
-      <div className="quote-block reveal" style={{ background: 'var(--ink-soft)', paddingTop: 0 }}>
-        <div className="container">
-          <span className="mark" style={{ color: 'var(--accent)' }}>&ldquo;</span>
-          <p>
-            To provide human Resource, environment and property protections through offering high-quality, practical, and compliant safety solutions and partnerships that foster HSE development internationally.
-          </p>
-          <div className="who">Our Mission</div>
-        </div>
-      </div>
+      </section>
 
       <section className="section on-paper2 reveal">
         <div className="container">
-          <div className="section-head">
+          <div className="section-head center">
             <span className="eyebrow">What We Do</span>
             <h2>Services built around every stage of workplace safety</h2>
             <p>
@@ -166,7 +152,7 @@ export default async function Home() {
 
       <section className="section reveal">
         <div className="container">
-          <div className="section-head">
+          <div className="section-head center">
             <span className="eyebrow">Commitment Benefit</span>
             <h2>Why a robust commitment to OSH pays off</h2>
             <p>We believe dedication to OSH is not merely a regulatory duty but a strategic advantage.</p>
@@ -196,11 +182,11 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="section on-ink reveal">
+      <section className="section on-paper2 reveal">
         <div className="container">
-          <div className="section-head">
+          <div className="section-head center">
             <span className="eyebrow">Why 4 Max Safety</span>
-            <h2>Quantitative rigor. Evidence over opinion.</h2>
+            <h2>Quantitative rigor, Evidence over opinion.</h2>
           </div>
           <div className="why-grid">
             <div className="why-item">
@@ -229,7 +215,7 @@ export default async function Home() {
 
       <section className="section reveal">
         <div className="container">
-          <div className="section-head">
+          <div className="section-head center">
             <span className="eyebrow">Who Do We Serve</span>
             <h2>Tailored safety solutions for high-risk & complex sectors</h2>
           </div>
@@ -255,7 +241,7 @@ export default async function Home() {
 
       <section className="section on-paper2 reveal">
         <div className="container">
-          <div className="section-head">
+          <div className="section-head center">
             <span className="eyebrow">Training Programs</span>
             <h2>Practical, certificate-bearing courses</h2>
             <p>Hands-on OSH training designed to build competent, safety-conscious teams at every level.</p>

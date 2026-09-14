@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // mobile nav toggle
+
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.querySelector('.main-nav');
   if (toggle && nav) {
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // mobile submenu accordion
+
   document.querySelectorAll('.main-nav > ul > li').forEach(function (li) {
     var link = li.querySelector('a');
     var dd = li.querySelector('.dropdown');
@@ -22,12 +22,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // duplicate ticker content for seamless loop
+
   document.querySelectorAll('.ticker-track').forEach(function (track) {
     track.innerHTML += track.innerHTML;
   });
 
-  // reveal on scroll
+
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
 
-  // course syllabus toggle
+
   document.querySelectorAll('.course-toggle').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var syllabus = btn.closest('.course-item').querySelector('.course-syllabus');
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // set active nav link
+
   var path = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('nav.main-nav > ul > li').forEach(function (li) {
     var a = li.querySelector(':scope > a');

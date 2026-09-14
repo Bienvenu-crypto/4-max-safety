@@ -5,7 +5,10 @@ export default async function Courses(props: { searchParams: Promise<{ success?:
   const searchParams = await props.searchParams;
   const success = searchParams.success === 'true';
 
-  const courses = await prisma.course.findMany({ orderBy: { category: 'asc' } });
+  const courses = await prisma.course.findMany({
+    where: { hidden: false },
+    orderBy: { category: 'asc' }
+  });
 
 
   const grouped = courses.reduce((acc, course) => {

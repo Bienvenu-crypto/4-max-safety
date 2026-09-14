@@ -17,7 +17,7 @@ export default async function Contact(props: { searchParams: Promise<{ success?:
         <div className="container">
           <h1>Let's talk about your workplace safety</h1>
           <p>
-            Reach out for audits, training, ISO consultancy, or PPE supply — our team responds within one business day.
+            Reach out for audits, training, ISO consultancy, or PPE supply. Our team responds within one business day.
           </p>
         </div>
       </section>

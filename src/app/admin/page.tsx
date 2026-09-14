@@ -26,7 +26,7 @@ export default async function AdminDashboard() {
       <h1 style={{ marginBottom: '8px' }}>Admin Dashboard</h1>
       <p style={{ color: 'var(--muted)', marginBottom: '40px' }}>Overview of your application data.</p>
 
-      {/* Stats */}
+
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginBottom: '48px' }}>
         <div style={{ background: 'white', padding: '24px', borderRadius: '8px', boxShadow: '0 2px 10px rgba(0,0,0,0.05)', borderLeft: '4px solid var(--accent)' }}>
           <h3 style={{ color: 'var(--muted)', fontSize: '13px', textTransform: 'uppercase', marginBottom: '8px', letterSpacing: '0.05em' }}>Services</h3>

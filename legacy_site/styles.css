@@ -944,15 +944,23 @@ nav.main-nav>ul>li:hover .dropdown {
 }
 
 .why-item h4 {
-  color: var(--white);
+  color: var(--ink);
   font-size: 17px;
   margin-bottom: 10px;
 }
 
 .why-item p {
-  color: rgba(255, 255, 255, .65);
+  color: var(--muted);
   font-size: 14.5px;
   margin: 0;
+}
+
+.section.on-ink .why-item h4 {
+  color: var(--white);
+}
+
+.section.on-ink .why-item p {
+  color: rgba(255, 255, 255, .65);
 }
 
 @media(max-width:900px) {
@@ -1202,8 +1210,8 @@ nav.main-nav>ul>li:hover .dropdown {
 
 
 footer.site-footer {
-  background: var(--ink-soft);
-  color: rgba(255, 255, 255, .72);
+  background: #1b367d;
+  color: rgba(255, 255, 255, .82);
   padding-top: 80px;
 }
 

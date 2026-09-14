@@ -5,7 +5,10 @@ export default async function Services(props: { searchParams: Promise<{ success?
   const searchParams = await props.searchParams;
   const success = searchParams.success === 'true';
 
-  const services = await prisma.service.findMany({ orderBy: { category: 'asc' } });
+  const services = await prisma.service.findMany({
+    where: { hidden: false },
+    orderBy: { category: 'asc' }
+  });
 
 
   const grouped = services.reduce((acc, service) => {
@@ -26,6 +29,14 @@ export default async function Services(props: { searchParams: Promise<{ success?
     ...categoryOrder.filter(c => grouped[c]),
     ...Object.keys(grouped).filter(c => !categoryOrder.includes(c)),
   ];
+
+  const categoryIdMap: Record<string, string> = {
+    "Risk Assessment & Workplace Safety Audits": "risk",
+    "Management Systems, ISO & Legal Compliance": "management",
+    "Training, Competence & Culture Development": "training",
+    "Incident Investigation & Post-Accident Support": "investigation",
+    "PPE & Safety Equipment Supply": "ppe",
+  };
 
   return (
     <>
@@ -59,7 +70,12 @@ export default async function Services(props: { searchParams: Promise<{ success?
           )}
 
           {sortedCategories.map((category, index) => (
-            <div key={category} className="reveal" style={{ marginBottom: '64px' }}>
+            <div
+              key={category}
+              id={categoryIdMap[category] || category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}
+              className="reveal"
+              style={{ marginBottom: '64px', scrollMarginTop: '100px' }}
+            >
               {/* Category Header */}
               <div style={{ marginBottom: '32px', textAlign: 'center' }}>
                 <span style={{ display: 'inline-block', background: 'var(--accent)', color: 'white', fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', padding: '4px 12px', borderRadius: '4px', marginBottom: '10px' }}>

@@ -19,6 +19,7 @@ model Course {
   price       Float?
   imageUrl    String?
   content     String?
+  hidden      Boolean  @default(false)
   orders      Order[]
 }
 
@@ -29,6 +30,7 @@ model Service {
   category    String
   imageUrl    String?
   content     String?
+  hidden      Boolean          @default(false)
   requests    ServiceRequest[]
 }
 

@@ -16,7 +16,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <section className="section">
+      <section id="who" className="section" style={{ scrollMarginTop: '100px' }}>
         <div className="container split">
           <div className="split-text">
             <span className="eyebrow" style={{ display: 'block', color: 'var(--accent)', fontWeight: 600, letterSpacing: '0.05em', marginBottom: '10px' }}>Executive Summary</span>
@@ -34,7 +34,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section on-paper2">
+      <section id="vision" className="section on-paper2" style={{ scrollMarginTop: '100px' }}>
         <div className="container">
           <div className="section-head center">
             <h2>Vision and Mission</h2>
@@ -57,7 +57,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section" style={{ background: 'var(--white)' }}>
+      <section id="values" className="section" style={{ background: 'var(--white)', scrollMarginTop: '100px' }}>
         <div className="container">
           <div className="section-head center">
             <h2>Our Core Values</h2>
@@ -80,7 +80,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section">
+      <section id="benefits" className="section" style={{ scrollMarginTop: '100px' }}>
         <div className="container">
           <div className="section-head center">
             <h2>Commitment Benefit</h2>
