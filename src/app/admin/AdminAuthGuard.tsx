@@ -149,17 +149,30 @@ export default function AdminAuthGuard({ initialAuthenticated, children }: Admin
           </form>
 
           <div style={{ marginTop: "24px", paddingTop: "20px", borderTop: "1px solid #F1F5F9" }}>
-            <Link
-              href="/"
+            <button
+              type="button"
+              onClick={() => {
+                window.location.href = "/";
+              }}
               style={{
-                color: "#64748B",
-                fontSize: "13px",
-                textDecoration: "none",
+                background: "#F1F5F9",
+                border: "1px solid #CBD5E1",
+                color: "#334155",
+                fontSize: "14px",
                 fontWeight: 600,
+                cursor: "pointer",
+                padding: "10px 18px",
+                borderRadius: "8px",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                width: "100%",
+                justifyContent: "center",
+                transition: "all 0.2s",
               }}
             >
               ← Return to Main Website
-            </Link>
+            </button>
           </div>
         </div>
       </div>
@@ -226,7 +239,11 @@ export default function AdminAuthGuard({ initialAuthenticated, children }: Admin
 
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "16px", display: "grid", gap: "8px" }}>
           <button
-            onClick={handleLogout}
+            type="button"
+            onClick={async () => {
+              await handleLogout();
+              window.location.href = "/";
+            }}
             style={{
               width: "100%",
               padding: "10px 14px",
@@ -240,15 +257,28 @@ export default function AdminAuthGuard({ initialAuthenticated, children }: Admin
               textAlign: "left",
             }}
           >
-            Sign Out
+            🔒 Sign Out & Exit
           </button>
-          <Link
-            href="/"
-            onClick={handleLogout}
-            style={{ color: "rgba(255,255,255,0.6)", textDecoration: "none", padding: "8px 14px", borderRadius: "6px", fontSize: "13px", display: "block" }}
+          <button
+            type="button"
+            onClick={async () => {
+              await handleLogout();
+              window.location.href = "/";
+            }}
+            style={{
+              width: "100%",
+              background: "transparent",
+              color: "rgba(255,255,255,0.7)",
+              border: "none",
+              padding: "8px 14px",
+              borderRadius: "6px",
+              fontSize: "13px",
+              cursor: "pointer",
+              textAlign: "left",
+            }}
           >
-            ← Exit Admin & Log Out
-          </Link>
+            ← Return to Main Website
+          </button>
         </div>
       </aside>
 
